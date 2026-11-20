@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#050b16" />
+  <title>JARVIS | Smart Student Assistant</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
+
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#" aria-label="JARVIS home">
+        <span class="brand-mark">J</span>
+        <span><strong>J.A.R.V.I.S</strong><small>STUDENT SYSTEM</small></span>
+      </a>
+
+      <div class="side-label">WORKSPACE</div>
+      <nav class="nav">
+        <button class="nav-item active" data-mode="chat"><span>⌘</span> Assistant</button>
+        <button class="nav-item" data-mode="study"><span>▤</span> Study mode</button>
+        <button class="nav-item" data-mode="notes"><span>▧</span> Notes & PDFs</button>
+        <button class="nav-item" data-mode="quiz"><span>◇</span> Quiz generator</button>
+        <button class="nav-item" data-mode="planner"><span>◷</span> Study planner</button>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <div class="connection"><span class="pulse-dot"></span><span id="connection-label">INTERFACE ONLINE</span></div>
+        <div class="profile">
+          <div class="avatar">SA</div>
+          <div><strong>Student</strong><small>Personal workspace</small></div>
+          <span class="profile-menu">···</span>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main-panel">
+      <header class="topbar">
+        <div>
+          <div class="eyebrow">SMART STUDENT ASSISTANT <span class="live-dot"></span></div>
+          <h1 id="page-title">Good evening. <span>How can I help?</span></h1>
+        </div>
+        <div class="topbar-right">
+          <div class="system-pill"><span class="pulse-dot"></span> SYSTEM READY</div>
+          <button class="icon-button" id="clear-chat" title="Clear conversation" aria-label="Clear conversation">⌫</button>
+        </div>
+      </header>
+
+      <section class="workspace">
+        <section class="visual-column">
+          <div class="core-wrap" id="core-wrap">
+            <div class="core-label">JARVIS CORE</div>
+            <div class="core">
+              <div class="orbit orbit-a"></div>
+              <div class="orbit orbit-b"></div>
+              <div class="orbit orbit-c"></div>
+              <div class="core-inner">
+                <div class="core-symbol"><span></span><span></span><span></span></div>
+              </div>
+              <div class="core-scan"></div>
+            </div>
+            <div class="core-status" id="core-status"><span class="tiny-dot"></span> AWAITING INPUT</div>
+            <div class="core-caption">YOUR PERSONAL LEARNING INTELLIGENCE</div>
+          </div>
+
+          <div class="quick-actions">
+            <button class="quick-card" data-prompt="Explain a difficult topic to me in simple steps.">
+              <span class="quick-icon">⌁</span><span><strong>Explain a topic</strong><small>Break down difficult concepts</small></span><b>↗</b>
+            </button>
+            <button class="quick-card" data-prompt="Create a short study plan for my upcoming exams.">
+              <span class="quick-icon">◷</span><span><strong>Plan my study</strong><small>Organise your study sessions</small></span><b>↗</b>
+            </button>
+            <button class="quick-card" data-prompt="Generate a practice quiz and show answers after I try.">
+              <span class="quick-icon">◇</span><span><strong>Generate a quiz</strong><small>Test your understanding</small></span><b>↗</b>
+            </button>
+          </div>
+        </section>
+
+        <section class="chat-panel">
+          <div class="chat-heading">
+            <div><span class="chat-heading-icon">✳</span><div><strong>Neural interface</strong><small>Conversation channel</small></div></div>
+            <span class="encrypted">● SECURE SESSION</span>
+          </div>
+          <div class="messages" id="messages" aria-live="polite">
+            <div class="message assistant-message">
+              <div class="message-avatar">J</div>
+              <div class="message-content">
+                <div class="message-meta">JARVIS <span>JUST NOW</span></div>
+                <p>At your service. I'm ready to help you learn, revise, plan, and solve problems. What shall we work on?</p>
+              </div>
+            </div>
+          </div>
+          <div class="typing-indicator" id="typing-indicator"><i></i><i></i><i></i><span>JARVIS IS THINKING</span></div>
+          <div class="composer-wrap">
+            <div class="composer">
+              <textarea id="prompt-input" rows="1" placeholder="Message your assistant..." aria-label="Message your assistant"></textarea>
+              <button class="mic-button" id="mic-button" title="Use voice input" aria-label="Use voice input">♩</button>
+              <button class="send-button" id="send-button" aria-label="Send message">➤</button>
+            </div>
+            <div class="composer-foot"><span>ENTER TO SEND <b>·</b> SHIFT + ENTER FOR NEW LINE</span><span id="voice-support">VOICE INPUT AVAILABLE IN SUPPORTED BROWSERS</span></div>
+          </div>
+        </section>
+      </section>
+
+      <footer class="footer">
+        <span>J.A.R.V.I.S <b>STUDENT EDITION</b></span>
+        <span>DESIGNED FOR LEARNING <i>✦</i></span>
+      </footer>
+    </main>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
