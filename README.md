@@ -68,3 +68,8 @@ Python, LangGraph, LangChain, Google Gemini API, Antigravity IDE
   
 ## Note
 Built by following a LangGraph tutorial manual and customised with my own student tools.
+
+## Screenshots
+![Home](jarvis-1-home.png)
+![Tools](jarvis-2-tools.png)
+![Memory](jarvis-3-memory.png)
