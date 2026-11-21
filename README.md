@@ -65,7 +65,7 @@ Python, LangGraph, LangChain, Google Gemini API, Antigravity IDE
 - `backend/assistant.py`: the LangGraph agent with its three tools
 - `backend/server.py`: Flask API that connects the agent to the web page
 - `frontend/`: the JARVIS-style chat interface (HTML, CSS, JavaScript)
-- `agent.py`: the original terminal version
+- `agent1.py`: the original terminal version
   
 ## Note
 Built by following a LangGraph tutorial manual and customised with my own student tools.
