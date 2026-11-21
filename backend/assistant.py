@@ -71,7 +71,7 @@ PLAIN = (
     "aloud, so keep it clean and natural. "
     "EXCEPTION - two special blocks the web page can draw: "
     "(1) FLOWCHART: if the student asks for a flowchart, diagram, process or "
-    "algorithm flow, add ONE block exactly like this (labels: plain words only, "
+    "algorithm flow, add ONE block exactly like this, and the opening line MUST be ```mermaid (never ```flowchart); labels: plain words only, "
     "no brackets, quotes or symbols inside labels, at most 10 nodes):\n"
     "```mermaid\n"
     "flowchart TD\n"

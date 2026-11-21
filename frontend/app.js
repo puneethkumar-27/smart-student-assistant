@@ -127,8 +127,25 @@ function buildDiagram(code) {
   return box;
 }
 
+// Decide what a fenced block is, whatever label the AI put after the ```.
+const DIAGRAM_START = /^\s*(flowchart|graph|sequenceDiagram|stateDiagram|classDiagram|erDiagram|gantt|pie|mindmap)\b/i;
+function blockKind(lang, code) {
+  const l = (lang || "").toLowerCase();
+  if (l === "table") return "table";
+  if (["mermaid", "flowchart", "graph", "diagram"].includes(l) || DIAGRAM_START.test(code)) return "diagram";
+  if (!l && code.split("\n").filter((x) => x.includes(" | ")).length >= 2) return "table";
+  return null;
+}
+
+// Fix small mistakes the AI sometimes makes inside a flowchart.
+function cleanDiagram(code) {
+  let c = code.trim().replace(/→|⟶|➔|➜/g, "-->");
+  if (!DIAGRAM_START.test(c)) c = "flowchart TD\n" + c; // the first line was the label
+  return c;
+}
+
 function renderRich(container, text) {
-  const pattern = /```(mermaid|table)\s*\n([\s\S]*?)```/g;
+  const pattern = /```([a-zA-Z]*)[ \t]*\n([\s\S]*?)```/g;
   let last = 0;
   let match;
   const addText = (chunk) => {
@@ -140,8 +157,10 @@ function renderRich(container, text) {
     container.appendChild(span);
   };
   while ((match = pattern.exec(text)) !== null) {
+    const kind = blockKind(match[1], match[2]);
+    if (!kind) continue; // ordinary code block: leave it in the text
     addText(text.slice(last, match.index));
-    const node = match[1] === "table" ? buildTable(match[2]) : buildDiagram(match[2]);
+    const node = kind === "table" ? buildTable(match[2]) : buildDiagram(cleanDiagram(match[2]));
     if (node) container.appendChild(node);
     else addText(match[2]);
     last = pattern.lastIndex;
@@ -152,8 +171,11 @@ function renderRich(container, text) {
 
 // Text that should be read aloud: drop the table/flowchart blocks.
 function speakableText(text) {
-  const plain = text.replace(/```(mermaid|table)[\s\S]*?```/g, " ");
-  const had = plain.length !== text.length;
+  let had = false;
+  const plain = text.replace(/```([a-zA-Z]*)[ \t]*\n([\s\S]*?)```/g, (all, lang, code) => {
+    if (blockKind(lang, code)) { had = true; return " "; }
+    return all;
+  });
   const out = plain.trim();
   if (had) return (out ? out + " " : "") + "I have put it on screen for you.";
   return out;
