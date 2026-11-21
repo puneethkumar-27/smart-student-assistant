@@ -71,7 +71,9 @@ Python, LangGraph, LangChain, Google Gemini API, Antigravity IDE
 Built by following a LangGraph tutorial manual and customised with my own student tools.
 
 ## Screenshots
-![Home](jarvis-1-home.png)
-![Tools](jarvis-2-tools.png)
-![Memory](jarvis-3-memory.png)
+![Home](1-home.png)
+![Study mode](2-study-mode.png)
+![Timetable](3-timetable.png)
+![Flowchart](4-flowchart.png)
+![PDF summary](5-pdf-summary.png)
 
