@@ -34,7 +34,7 @@ Python, LangGraph, LangChain, Google Gemini API, Antigravity IDE
    ```
 6. Run:
    ```
-   python agent.py
+   python agent1.py
    ```
 
 ## Example questions
