@@ -3,11 +3,12 @@
 An AI agent that helps college students plan their academics. Built with Python, LangGraph and Google Gemini.
 
 ## What it does
-- 📅 **Exam countdown**: counts days until a date
-- ✅ **Attendance checker**: tells how many classes you can still miss (or must attend) to reach 75%
-- 🧮 **Calculator**: averages, percentages and marks
-- 🧠 **Memory**: remembers earlier questions in the chat
-
+- 📚 **Study mode**: explains a topic step by step and checks understanding
+- 🔊 **Voice replies**: JARVIS reads answers aloud
+- 📎 **PDF and file summaries**: attach a PDF, TXT or MD file to get a summary and ask questions about it
+- 🗓️ **Study planner**: builds a timetable from your exam dates
+- 🧭 **Flowcharts**: ask for a flowchart and it draws one
+- ❓ **Quiz generator**: creates 5 questions and marks your answers
 ## How it works
 The AI model reads your question, decides which tool to call, reads the result, and repeats until it can write a final answer. LangGraph runs this as a loop between a model node and a tools node.
 
